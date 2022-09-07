@@ -20,27 +20,19 @@ class HomeFragment : Fragment() {
     var number = 9995
     val STATEKEY = "savedNumber"
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        Log.v("PATIKADEV","onAttach called.")
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.v("PATIKADEV","onCreate called.")
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View {
-
-        if(savedInstanceState != null) {
+        savedInstanceState: Bundle?
+    ): View {
+        /**
+         * Get number in state with the key if not null
+         */
+        if (savedInstanceState != null) {
             val stateNumber = savedInstanceState.getInt(STATEKEY, 0)
             number = stateNumber
         }
 
-        Log.v("PATIKADEV","onCreateView called.")
+        Log.v("PATIKADEV", "onCreateView called.")
 
         fragmentHomeBinding = FragmentHomeBinding.inflate(inflater)
         return fragmentHomeBinding.root
@@ -50,8 +42,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Log.v("PATIKADEV","onViewCreated called.")
+        Log.v("PATIKADEV", "onViewCreated called.")
 
+        /**
+         * gold gif added in imageview and number increased
+         */
         fragmentHomeBinding.apply {
             Glide.with(requireContext()).load(R.drawable.gold).into(gifImageView)
             txvCounter.text = number.toString()
@@ -63,6 +58,10 @@ class HomeFragment : Fragment() {
             txvCounter.addTextChangedListener(textWatcherEmail)
         }
     }
+
+    /**
+     * Watching text change and check number for landscape or portrait mode
+     */
     private val textWatcherEmail = object : TextWatcher {
 
         override fun afterTextChanged(s: Editable?) {}
@@ -88,59 +87,74 @@ class HomeFragment : Fragment() {
                     Toast.makeText(requireContext(), "Counting completed!", Toast.LENGTH_SHORT)
                         .show()
                 }
-
             }
-          
         }
     }
 
+    /**
+     * Added number to save
+     *
+     * @param outState
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        Log.v("PATIKADEV","onSaveInstanceState called.")
+        Log.v("PATIKADEV", "onSaveInstanceState called.")
 
-        outState.putInt(STATEKEY,number)
+        outState.putInt(STATEKEY, number)
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        Log.v("PATIKADEV","onViewStateRestored called.")
+        Log.v("PATIKADEV", "onViewStateRestored called.")
+    }
+
+    /**
+     * This and below methods are examples for activity lifecycles.
+     *
+     */
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.v("PATIKADEV", "onAttach called.")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.v("PATIKADEV", "onCreate called.")
+
     }
 
     override fun onStart() {
         super.onStart()
-        Log.v("PATIKADEV","onStart called.")
+        Log.v("PATIKADEV", "onStart called.")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.v("PATIKADEV","onResume called.")
+        Log.v("PATIKADEV", "onResume called.")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.v("PATIKADEV","onPause called.")
+        Log.v("PATIKADEV", "onPause called.")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.v("PATIKADEV","onStop called.")
+        Log.v("PATIKADEV", "onStop called.")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.v("PATIKADEV","onDestroyView called.")
+        Log.v("PATIKADEV", "onDestroyView called.")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.v("PATIKADEV","onDestroy called.")
+        Log.v("PATIKADEV", "onDestroy called.")
     }
 
     override fun onDetach() {
         super.onDetach()
-        Log.v("PATIKADEV","onDetach called.")
+        Log.v("PATIKADEV", "onDetach called.")
     }
-
-
-
 }
