@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Week3</string>
+    <string name="app_name">Week3Work</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="count_the_gold">Count the gold</string>
+    <string name="gold_count">Gold Count</string>
 </resources>
