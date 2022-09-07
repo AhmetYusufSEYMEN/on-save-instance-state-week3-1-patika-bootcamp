@@ -1,4 +1,4 @@
 # Gold count app Demo :)
 
-<img src ="https://user-images.githubusercontent.com/55987416/188891750-e8a80018-4034-4d42-9a23-2c2f62532d8b.mp4" width = 324 height = 702/> 
+<img src ="https://user-images.githubusercontent.com/55987416/188896529-0b263d5e-5c79-4f10-b4dd-10f49b73644d.gif" width = 324 height = 702/> 
 
